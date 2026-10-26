@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: #101014;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: clip;
+}
+
+/* Tutorial trick 5a: headline base is a vertical white gradient */
+.headline-gradient {
+  background: linear-gradient(180deg, #ffffff 15%, rgba(255, 255, 255, 0.38) 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Tutorial trick 5b: a second copy of the headline, masked by a wide
+   brand-slash shape and blended soft-light, lays a glossy slice of
+   light through the type. */
+.sheen-mask {
+  mix-blend-mode: soft-light;
+  opacity: 0.95;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 200'%3E%3Cpath d='M-10 168 C 140 84, 330 44, 610 22 L 610 66 C 390 92, 210 138, 30 196 Z' fill='white'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 200'%3E%3Cpath d='M-10 168 C 140 84, 330 44, 610 22 L 610 66 C 390 92, 210 138, 30 196 Z' fill='white'/%3E%3C/svg%3E");
+  -webkit-mask-size: 130% 130%;
+  mask-size: 130% 130%;
+  -webkit-mask-position: center 62%;
+  mask-position: center 62%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
